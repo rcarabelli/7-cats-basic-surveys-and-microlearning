@@ -1,3 +1,15 @@
 2024-07-28 01:15:19 - Inserted query log ID for message ID 40390 with phone +51956031565 and message: sdgfdgdgdf
 2024-07-28 01:15:19 - Inserted query log ID for message ID 40391 with phone +51956031565 and message: 45345345
 2024-07-28 01:15:44 - Inserted query log ID for message ID 40395 with phone +51956031565 and message: PE1695994948
+2024-07-28 01:40:24 - Inserted query log ID for message ID 40397 with phone +51944604747 and message: 08275052
+2024-07-28 01:57:39 - Inserted query log ID for message ID 40399 with phone +51946267530 and message: 46243644
+2024-07-28 02:11:39 - Inserted query log ID for message ID 40401 with phone +51981160139 and message: 71930207
+2024-07-28 02:16:24 - Inserted query log ID for message ID 40403 with phone +51959883516 and message: 45763537
+2024-07-28 02:28:49 - Inserted query log ID for message ID 40405 with phone +51994130005 and message: 46751482
+2024-07-28 02:40:44 - Inserted query log ID for message ID 40407 with phone +51946267530 and message: 47066584
+2024-07-28 02:58:19 - Inserted query log ID for message ID 40409 with phone +51944604747 and message: 42393716
+2024-07-28 03:01:54 - Inserted query log ID for message ID 40411 with phone +51959883516 and message: 700265781909
+2024-07-28 03:43:09 - Inserted query log ID for message ID 40413 with phone +51944604747 and message: 43518064
+2024-07-28 04:32:59 - Inserted query log ID for message ID 40415 with phone +51956031565 and message: PE1695994948
+2024-07-28 04:46:19 - Inserted query log ID for message ID 40418 with phone +51994150263 and message: 07756460
+2024-07-28 04:52:30 - Inserted query log ID for message ID 40420 with phone +51934622575 and message: 47485840

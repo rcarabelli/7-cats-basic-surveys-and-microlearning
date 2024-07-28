@@ -30,10 +30,6 @@ function get_intents_from_db() {
     return $results;
 }
 
-
-
-
-
 // Function to handle the creation of a new survey
 function handle_create_survey($wpdb, $table_name) {
     $survey_name = sanitize_text_field($_POST['survey_name']);
@@ -59,8 +55,6 @@ function handle_create_survey($wpdb, $table_name) {
         )
     );
 }
-
-
 
 // Function to handle the editing of an existing survey
 function handle_edit_survey($wpdb, $table_name) {
@@ -117,14 +111,11 @@ function handle_edit_survey($wpdb, $table_name) {
     }
 }
 
-
-
 // Function to render the form for creating a new survey
 function render_create_survey_form() {
-    $intents = get_intents_from_db(); // Cambiado para recuperar los intents de la base de datos.
+    $intents = get_intents_from_db(); // Retrieve intents from the database.
     
-    // Aquí, puedes verificar si $intents tiene datos
-    if(empty($intents)) {
+    if (empty($intents)) {
         echo 'No se han encontrado intents en la base de datos.';
         return;
     }
@@ -151,12 +142,12 @@ function render_create_survey_form() {
                     <tr>
                         <th scope="row"><label for="image">Image URL</label></th>
                         <td>
-                        <input name="image" type="text" id="image" class="regular-text">
-                        <button type="button" class="upload-media-button" 
-                                data-input-id="image" 
-                                data-title="Choose Image" 
-                                data-button-text="Choose Image" 
-                                id="upload_image_button">Upload Image</button>
+                            <input name="image" type="text" id="image" class="regular-text">
+                            <button type="button" class="upload-media-button" 
+                                    data-input-id="image" 
+                                    data-title="Choose Image" 
+                                    data-button-text="Choose Image" 
+                                    id="upload_image_button">Upload Image</button>
                         </td>
                     </tr>
                     <tr>
@@ -176,7 +167,7 @@ function render_create_survey_form() {
                         <td><select name="intent" id="intent">';
 
     foreach ($intents as $intent_data) {
-        $intent = $intent_data['intent_or_context_name']; // Accediendo al valor de la columna 'intent_or_context_name'
+        $intent = $intent_data['intent_or_context_name'];
         echo "<option value='$intent'>$intent</option>";
     }
 
@@ -190,13 +181,11 @@ function render_create_survey_form() {
           </form>';
 }
 
-
 // Function to render the form for editing an existing survey
 function render_edit_survey_form($wpdb, $table_name, $selected_survey) {
-    $intents = get_intents_from_db(); // Cambiado para recuperar los intents de la base de datos.
+    $intents = get_intents_from_db(); // Retrieve intents from the database.
     
-    // Aquí, puedes verificar si $intents tiene datos
-    if(empty($intents)) {
+    if (empty($intents)) {
         echo 'No se han encontrado intents en la base de datos.';
         return;
     }
@@ -265,7 +254,7 @@ function render_edit_survey_form($wpdb, $table_name, $selected_survey) {
                         <td><select name="new_intent" id="new_intent">';
 
     foreach ($intents as $intent_data) {
-        $intent = $intent_data['intent_or_context_name']; // Accediendo al valor de la columna 'intent_or_context_name'
+        $intent = $intent_data['intent_or_context_name'];
         echo "<option value='$intent'>$intent</option>";
     }
 
@@ -278,14 +267,6 @@ function render_edit_survey_form($wpdb, $table_name, $selected_survey) {
             </p>
           </form>';
 }
-
-function enqueue_plugin_admin_scripts() {
-    wp_enqueue_media(); // Asegúrate de que la biblioteca de medios de WordPress está encolada
-    wp_enqueue_script('my-plugin-scripts', plugin_dir_url(__FILE__) . 'plugin-scripts.js', array('jquery'), null, true);
-}
-
-
-add_action('admin_enqueue_scripts', 'enqueue_plugin_admin_scripts');
 
 // Main function
 function render_create_and_manage_survey() {

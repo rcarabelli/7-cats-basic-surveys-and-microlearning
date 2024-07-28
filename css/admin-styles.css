@@ -1,0 +1,45 @@
+.answer-group {
+    display: flex;
+    align-items: top;
+    margin-bottom: 10px;
+    width: auto; /* Adjust width as needed */
+    max-width: 320px; /* Optional max-width */
+}
+
+.answer-input {
+    flex: 1;
+    margin-right: 10px;
+    width: 150px; /* Adjust width as needed */
+    box-sizing: border-box; /* Include padding and border in width */
+    height: 28px; /* Adjust height */
+}
+
+.answer-dropdown {
+    width: 150px; /* Adjust width as needed */
+    height: 28px; /* Match input height */
+    margin-right: 10px;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.delete-answer {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 1px 9px 6px 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 5px;
+    border-radius: 50%;
+    width: 36px;
+    height: 26px;
+    line-height: 16px;
+    cursor: pointer;
+    position: relative;
+    top: 3px;  /* Adjust as needed */
+}
+
+.delete-answer:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
