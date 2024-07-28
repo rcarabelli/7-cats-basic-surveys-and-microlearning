@@ -1,0 +1,3 @@
+2024-07-28 01:15:19 - Inserted query log ID for message ID 40390 with phone +51956031565 and message: sdgfdgdgdf
+2024-07-28 01:15:19 - Inserted query log ID for message ID 40391 with phone +51956031565 and message: 45345345
+2024-07-28 01:15:44 - Inserted query log ID for message ID 40395 with phone +51956031565 and message: PE1695994948
