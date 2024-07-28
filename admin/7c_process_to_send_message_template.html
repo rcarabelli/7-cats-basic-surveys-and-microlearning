@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Proceso de Envío de Message Templates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2, p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ciclo de Envío de Message Templates de WhatsApp en el Plugin</h1>
+
+<h2>1. <code>message_template_prepare_data_from_db_to_send_wa_message_template()</code></h2>
+<p>Esta función busca la primera ocurrencia en la tabla <code>7c_send_message_template_logs</code> donde el estado es "pending". Devuelve un array con los datos relevantes para enviar el mensaje, incluyendo el <code>user_id</code> que es esencial para las siguientes funciones.</p>
+
+<h2>2. <code>recover_sb_user_data_user_phone_number($user_id)</code></h2>
+<p>Se encarga de obtener el número de teléfono (<code>phone</code>) asociado con el <code>user_id</code> brindado. Este número es crítico para enviar el message template a través de WhatsApp.</p>
+
+<h2>3. <code>recover_sb_conversation_ids_from_user_id($user_id)</code></h2>
+<p>A partir del <code>user_id</code>, identifica todas las conversaciones (<code>conversation_id</code>) asociadas en Support Board.</p>
+
+<h2>4. <code>recover_sb_more_recent_conversation_id_from_message_id($user_id)</code></h2>
+<p>Utiliza la función <code>recover_sb_conversation_ids_from_user_id($user_id)</code> para obtener todos los <code>conversation_id</code> relacionados. Luego, busca la conversación más reciente a partir de los registros de mensajes.</p>
+
+<h2>5. <code>message_template_find_final_data_from_user_conversation_to_send()</code></h2>
+<p>Función central que coordina las anteriores. Comienza llamando a <code>message_template_prepare_data_from_db_to_send_wa_message_template()</code> para obtener los datos del message template pendiente. Posteriormente, utiliza el <code>user_id</code> para llamar a <code>recover_sb_more_recent_conversation_id_from_message_id($user_id)</code>, obteniendo el <code>conversation_id</code> más reciente. Por último, integra todos los datos necesarios en un array para ser procesados por la siguiente función de envío.</p>
+
+<h2>6. <code>send_whatsapp_template_message($data)</code></h2>
+<p>Función final que toma el array proporcionado por <code>message_template_find_final_data_from_user_conversation_to_send()</code>. Extrae todos los datos relevantes, como <code>phone</code>, <code>message_template_id</code>, <code>header_variables</code>, <code>body_variables</code> y otros. Luego, utiliza la función <code>sb_whatsapp_send_template</code> para enviar el message template a través de WhatsApp. Devuelve un mensaje de éxito o error según la respuesta del envío.</p>
+
+</body>
+</html>
