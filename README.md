@@ -4,7 +4,7 @@ This is a WordPress plugin designed to integrate with Board Support Helpdesk and
 
 ## Features
 
-- Create services, microlearning courses, and surveys within WordPress.
+- Create services, microlearning courses, navigating menus and surveys within WordPress.
 - Deliver content to active WhatsApp users via Board Support.
 - Trigger content delivery through WordPress menus.
 - Works with the WhatsApp Business API.
